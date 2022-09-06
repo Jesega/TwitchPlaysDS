@@ -31,6 +31,7 @@ import concurrent.futures
 from TwitchPlays_KeyCodes import *
 from AudioAlert import *
 from Timer import *
+from ChusoNames import *
 
 ##########################################################
 
@@ -147,7 +148,7 @@ def turno_chat(tiempo_chat):
     global timer_thread_pool
     global active_tasks
     alert_turnoChat()
-    f = timer_thread_pool.submit(cuenta_atras, tiempo_chat)
+    f = timer_thread_pool.submit(cuenta_atras_chat, tiempo_chat)
     print('Turno del chat!')
     while not f.done():
         active_tasks = [t for t in active_tasks if not t.done()]
@@ -200,8 +201,8 @@ def turno_chat(tiempo_chat):
 def turno_chuso(t):
     global timer_thread_pool
     alert_turnoChuso()
-    print('Turno del chingo montenegro!')
-    cuenta_atras(t)
+    print(crear_mensaje_turno_chuso())
+    cuenta_atras_chuso(t)
 
 while True:
     turno_chuso(tiempo_chuso)
