@@ -30,6 +30,7 @@ import pyautogui
 import concurrent.futures
 from TwitchPlays_KeyCodes import *
 from AudioAlert import *
+from Timer import *
 
 ##########################################################
 
@@ -45,16 +46,19 @@ MESSAGE_RATE = 0.5
 # Setting to ~50 is good for total chaos, ~5-10 is good for 2D platformers
 MAX_QUEUE_LENGTH = 1  
 MAX_WORKERS = 100 # Maximum number of threads you can process at a time 
+thread_pool = concurrent.futures.ThreadPoolExecutor(max_workers=MAX_WORKERS)
+timer_thread_pool = concurrent.futures.ThreadPoolExecutor(max_workers=2)
+active_tasks = []
 
 # CHUSO AQUÍ CAMBIAS LOS TIEMPOS
 # Incremento de tiempo del chat (segundos) en cada cambio de turno (dejalo a 0 si no quieres que aumente el tiempo de cada turno)
-incremento_turno_chat = 30
+incremento_turno_chat = 0
 # Incremento de tiempo del chat (segundos) en cada cambio de turno (dejalo a 0 si no quieres que aumente el tiempo de cada turno)
-incremento_turno_chuso = 20
+incremento_turno_chuso = 0
 # Tiempo con el que empezará el turno de chuso (segundos)
-tiempo_chuso = 5
+tiempo_chuso = 10
 # Tiempo con el que empezará el turno del chat (segundos)
-tiempo_chat = 30
+tiempo_chat = 10
 
 pyautogui.FAILSAFE = False
 
@@ -139,12 +143,13 @@ def handle_message(message):
 def turno_chat(tiempo_chat):
     last_time = time.time()
     message_queue = []
-    thread_pool = concurrent.futures.ThreadPoolExecutor(max_workers=MAX_WORKERS)
-    active_tasks = []
+    global thread_pool
+    global timer_thread_pool
+    global active_tasks
     alert_turnoChat()
+    f = timer_thread_pool.submit(cuenta_atras, tiempo_chat)
     print('Turno del chat!')
-    comienza_turno = time.time()
-    while time.time() < comienza_turno + tiempo_chat:
+    while not f.done():
         active_tasks = [t for t in active_tasks if not t.done()]
 
         #Check for new messages
@@ -192,10 +197,11 @@ def turno_chat(tiempo_chat):
                 else:
                     print(f'WARNING: active tasks ({len(active_tasks)}) exceeds number of workers ({MAX_WORKERS}). ({len(message_queue)} messages in the queue)')
 
-def turno_chuso(tiempo_chuso):
+def turno_chuso(t):
+    global timer_thread_pool
     alert_turnoChuso()
     print('Turno del chingo montenegro!')
-    time.sleep(tiempo_chuso)
+    cuenta_atras(t)
 
 while True:
     turno_chuso(tiempo_chuso)
