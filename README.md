@@ -18,4 +18,4 @@ Hay dos modos de ejecución:
 ## Autores y reconocimiento
 Los sripts iniciales se obtuvieron de [DogDoug](https://www.dougdoug.com/twitchplays).
 Gracias a Chuso ( [chusommontero](https://www.twitch.tv/chusommontero) ) por el reconocimiento y la oportunidad de ayudarle.
-Código final producido por Jesega ( (Jesús Serrano Gallán)[https://www.linkedin.com/in/jes%C3%BAs-serrano-gall%C3%A1n-b768a3175/] )
+Código final producido por Jesega ( [Jesús Serrano Gallán](https://www.linkedin.com/in/jes%C3%BAs-serrano-gall%C3%A1n-b768a3175/) )
