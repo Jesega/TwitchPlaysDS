@@ -200,7 +200,7 @@ def turno_chat(tiempo_chat):
 
 def turno_chuso(t):
     global timer_thread_pool
-    alert_turnoChuso()
+    alert_turnoStreamer()
     print(crear_mensaje_turno_chuso())
     cuenta_atras_chuso(t)
 

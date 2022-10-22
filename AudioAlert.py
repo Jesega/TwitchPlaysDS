@@ -1,10 +1,10 @@
 from playsound import playsound
 
-PATH_AUDIO_CHUSO = "./pingo.mp3"
-PATH_AUDIO_CHAT = "./conio.mp3"
+PATH_AUDIO_STREAMER = "./sound1.mp3"
+PATH_AUDIO_CHAT = "./sound2.mp3"
 
-def alert_turnoChuso():
-    playsound(PATH_AUDIO_CHUSO)
+def alert_turnoStreamer():
+    playsound(PATH_AUDIO_STREAMER)
 
 def alert_turnoChat():
     playsound(PATH_AUDIO_CHAT)

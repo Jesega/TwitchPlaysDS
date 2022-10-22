@@ -1,1 +1,0 @@
-1 - Si sale un error rollo que no puede cerrar el archivo .mp3 ejecuta: pip install playsound==1.2.2 (si no va pip pues pip3)
