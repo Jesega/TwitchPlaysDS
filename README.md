@@ -21,7 +21,4 @@ Gracias a Chuso ( [chusommontero](https://www.twitch.tv/chusommontero) ) por el 
 Código final producido por Jesega ( [Jesús Serrano Gallán](https://www.linkedin.com/in/jes%C3%BAs-serrano-gall%C3%A1n-b768a3175/) )
 
 ## Demostración
-Dejo un vídeo que grabó Chuso para su canal utilizando el script manual. En él se puede ver como en algunas secciones el usuario permite al chat que controle al personaje a través de comandos que escriben en el chat, dando como resultado una interacción muy natural y divertida entre el streamer y sus espectadores. Justo lo que se pretendía conseguir.
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/ADjS21Zg-UM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
+Dejo en [este enlace](https://www.youtube.com/watch?v=ADjS21Zg-UM&t=1s&ab_channel=ChusoMMontero) un vídeo que grabó Chuso para su canal utilizando el script manual. En él se puede ver como en algunas secciones el usuario permite al chat que controle al personaje a través de comandos que escriben en el chat, dando como resultado una interacción muy natural y divertida entre el streamer y sus espectadores. Justo lo que se pretendía conseguir.
